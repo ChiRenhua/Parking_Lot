@@ -12,6 +12,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -24,6 +25,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
@@ -99,6 +101,7 @@ public class MapActivity extends Fragment implements
 	private Button jinruButton;
 	private Button jieshuButton;
 	private Button biaojiButton;
+	private TextView price;
 	private Marker temp;
 	private LatLng myLocation;
 	private RoutePlanSearch mSearch = null;
@@ -156,10 +159,20 @@ public class MapActivity extends Fragment implements
 		layoutParams4.setMargins(867, 950, 10, 10);// 150-1650/50-950
 		relativeLayout.addView(biaojiButton, layoutParams4);
 
+		price = new TextView(getActivity().getApplicationContext());
+		RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(
+				RelativeLayout.LayoutParams.WRAP_CONTENT,
+				RelativeLayout.LayoutParams.WRAP_CONTENT);
+		layoutParams5.setMargins(800, 850, 10, 10);// 150-1650/50-950
+		price.setTextColor(Color.BLACK);
+		price.setTextSize(25);
+		relativeLayout.addView(price, layoutParams5);
+
 		daohangButton.setVisibility(View.INVISIBLE);
 		jinruButton.setVisibility(View.INVISIBLE);
 		jieshuButton.setVisibility(View.INVISIBLE);
 		biaojiButton.setVisibility(View.INVISIBLE);
+		price.setVisibility(View.INVISIBLE);
 
 		jieshuButton.setOnClickListener(new OnClickListener() {
 
@@ -251,6 +264,13 @@ public class MapActivity extends Fragment implements
 				if (markers.get(i) == arg0) {
 					daohangButton.setVisibility(View.VISIBLE);
 					jinruButton.setVisibility(View.VISIBLE);
+					if (dataManager.getParkingInfo().get(i)
+							.getParkingProperty() == "Business") {
+						price.setVisibility(View.VISIBLE);
+						price.setText("价格："
+								+ dataManager.getParkingInfo().get(i)
+										.getPrice() + "元/小时");
+					}
 					if (dataManager.getUserOrVip().equals("user")) {
 						if (dataManager.getLikedParkingLotArrayList().size() == 0) {
 							biaojiButton.setText("标记为感兴趣");
@@ -258,8 +278,9 @@ public class MapActivity extends Fragment implements
 						} else {
 							for (int j = 0; j < dataManager
 									.getLikedParkingLotArrayList().size(); j++) {
-								Marker data = dataManager.getParkingHashMap().get(
-										dataManager.getLikedParkingLotArrayList()
+								Marker data = dataManager.getParkingHashMap()
+										.get(dataManager
+												.getLikedParkingLotArrayList()
 												.get(j));
 								if (data.equals(temp)) {
 									biaojiButton.setText("取消感兴趣");
@@ -275,7 +296,7 @@ public class MapActivity extends Fragment implements
 							break;
 						}
 					}
-					
+
 				}
 			}
 
@@ -287,6 +308,7 @@ public class MapActivity extends Fragment implements
 					daohangButton.setVisibility(View.INVISIBLE);
 					jinruButton.setVisibility(View.INVISIBLE);
 					biaojiButton.setVisibility(View.INVISIBLE);
+					price.setVisibility(View.INVISIBLE);
 
 				}
 			});
@@ -308,6 +330,7 @@ public class MapActivity extends Fragment implements
 							jinruButton.setVisibility(View.INVISIBLE);
 							biaojiButton.setVisibility(View.INVISIBLE);
 							jieshuButton.setVisibility(View.VISIBLE);
+							price.setVisibility(View.INVISIBLE);
 							break;
 						}
 					}
@@ -409,6 +432,7 @@ public class MapActivity extends Fragment implements
 					daohangButton.setVisibility(View.INVISIBLE);
 					jinruButton.setVisibility(View.INVISIBLE);
 					biaojiButton.setVisibility(View.INVISIBLE);
+					price.setVisibility(View.INVISIBLE);
 				}
 
 			});
@@ -421,7 +445,7 @@ public class MapActivity extends Fragment implements
 	public void InitOverlatParking() {
 		markers.clear();
 		ParkingInfo data;
-		Marker marker;
+		Marker marker = null;
 		dataManager.getParkingHashMap().clear();
 		for (int i = 0; i < dataManager.getParkingInfo().size(); i++) {
 			data = dataManager.getParkingInfo().get(i);
@@ -430,11 +454,21 @@ public class MapActivity extends Fragment implements
 
 				switch (data.getFaZhi()) {
 				case 0:
-					marker = (Marker) mBaiduMap
-							.addOverlay(new MarkerOptions()
-									.position(data.getLatLng())
-									.icon(BitmapDescriptorFactory
-											.fromResource(R.drawable.icon_green_marka)));
+					if(data.getParkingProperty().equals("Free")){
+						marker = (Marker) mBaiduMap
+								.addOverlay(new MarkerOptions()
+										.position(data.getLatLng())
+										.icon(BitmapDescriptorFactory
+												.fromResource(R.drawable.ff)));
+					}
+					if(data.getParkingProperty().equals("Business")){
+						marker = (Marker) mBaiduMap
+								.addOverlay(new MarkerOptions()
+										.position(data.getLatLng())
+										.icon(BitmapDescriptorFactory
+												.fromResource(R.drawable.bf)));
+					}
+					
 					// 添加文字
 					ooText = new TextOptions().bgColor(0xAAFFFF00).fontSize(24)
 							.fontColor(0xFF008B00).text(data.getParkingName())
@@ -442,11 +476,20 @@ public class MapActivity extends Fragment implements
 					mBaiduMap.addOverlay(ooText);
 					break;
 				case 1:
-					marker = (Marker) mBaiduMap
-							.addOverlay(new MarkerOptions()
-									.position(data.getLatLng())
-									.icon(BitmapDescriptorFactory
-											.fromResource(R.drawable.icon_yellow_marka)));
+					if(data.getParkingProperty().equals("Free")){
+						marker = (Marker) mBaiduMap
+								.addOverlay(new MarkerOptions()
+										.position(data.getLatLng())
+										.icon(BitmapDescriptorFactory
+												.fromResource(R.drawable.fb)));
+					}
+					if(data.getParkingProperty().equals("Business")){
+						marker = (Marker) mBaiduMap
+								.addOverlay(new MarkerOptions()
+										.position(data.getLatLng())
+										.icon(BitmapDescriptorFactory
+												.fromResource(R.drawable.bb)));
+					}
 					// 添加文字
 					ooText = new TextOptions().bgColor(0xAAFFFF00).fontSize(24)
 							.fontColor(0xFFCFB53B).text(data.getParkingName())
@@ -454,10 +497,20 @@ public class MapActivity extends Fragment implements
 					mBaiduMap.addOverlay(ooText);
 					break;
 				case 2:
-					marker = (Marker) mBaiduMap.addOverlay(new MarkerOptions()
-							.position(data.getLatLng())
-							.icon(BitmapDescriptorFactory
-									.fromResource(R.drawable.icon_red_marka)));
+					if(data.getParkingProperty().equals("Free")){
+						marker = (Marker) mBaiduMap
+								.addOverlay(new MarkerOptions()
+										.position(data.getLatLng())
+										.icon(BitmapDescriptorFactory
+												.fromResource(R.drawable.fa)));
+					}
+					if(data.getParkingProperty().equals("Business")){
+						marker = (Marker) mBaiduMap
+								.addOverlay(new MarkerOptions()
+										.position(data.getLatLng())
+										.icon(BitmapDescriptorFactory
+												.fromResource(R.drawable.ba)));
+					}
 					// 添加文字
 					ooText = new TextOptions().bgColor(0xAAFFFF00).fontSize(24)
 							.fontColor(0xFFFF00FF).text(data.getParkingName())

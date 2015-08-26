@@ -33,6 +33,24 @@ public class ParkingInfo {
 	private int temperature;
 	private int floorNumber;
 	private int faZhi;
+	private int Price;
+	private String parkingProperty;
+
+	public int getPrice() {
+		return Price;
+	}
+
+	public void setPrice(int price) {
+		Price = price;
+	}
+
+	public String getParkingProperty() {
+		return parkingProperty;
+	}
+
+	public void setParkingProperty(String parkingProperty) {
+		this.parkingProperty = parkingProperty;
+	}
 
 	public int getFaZhi() {
 		return faZhi;
@@ -137,11 +155,19 @@ public class ParkingInfo {
 		this.address = address;
 	}
 
-	public ParkingInfo(Context content, String name) {
+	public ParkingInfo(Context content, String name,String parkingProperty) {
 		this.context = content;
 		this.name = name;
+		this.parkingProperty = parkingProperty;
 	}
 
+	public ParkingInfo(Context content, String name,String parkingProperty,int price) {
+		this.context = content;
+		this.name = name;
+		this.parkingProperty = parkingProperty;
+		this.Price = price;
+	}
+	
 	public int getIndex() {
 		return index;
 	}

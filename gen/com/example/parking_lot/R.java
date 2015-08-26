@@ -1075,18 +1075,24 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int carbgn=0x7f020057;
-        public static final int ic_launcher=0x7f020058;
-        public static final int ic_launcher0=0x7f020059;
-        public static final int ic_launcher1=0x7f02005a;
-        public static final int ic_launcher2=0x7f02005b;
-        public static final int icon_en=0x7f02005c;
-        public static final int icon_green_marka=0x7f02005d;
-        public static final int icon_markj=0x7f02005e;
-        public static final int icon_red_marka=0x7f02005f;
-        public static final int icon_st=0x7f020060;
-        public static final int icon_yellow_marka=0x7f020061;
-        public static final int touxiang=0x7f020062;
+        public static final int ba=0x7f020057;
+        public static final int bb=0x7f020058;
+        public static final int bf=0x7f020059;
+        public static final int bn=0x7f02005a;
+        public static final int carbgn=0x7f02005b;
+        public static final int fa=0x7f02005c;
+        public static final int fb=0x7f02005d;
+        public static final int ff=0x7f02005e;
+        public static final int fn=0x7f02005f;
+        public static final int ic_launcher=0x7f020060;
+        public static final int ic_launcher0=0x7f020061;
+        public static final int ic_launcher1=0x7f020062;
+        public static final int ic_launcher2=0x7f020063;
+        public static final int icon_en=0x7f020064;
+        public static final int icon_gcoding=0x7f020065;
+        public static final int icon_markj=0x7f020066;
+        public static final int icon_st=0x7f020067;
+        public static final int touxiang=0x7f020068;
     }
     public static final class id {
         public static final int DengLu=0x7f050047;
