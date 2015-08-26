@@ -325,6 +325,7 @@ public class MapActivity extends Fragment implements
 						if (data.getMarker().equals(temp)) {
 							new Thread(new cengnetwork()).start();// 下载停车场层的信息
 							dataManager.setIndex(i);
+							dataManager.setParkingName(data.getName());
 							fm = getFragmentManager();
 							ft = fm.beginTransaction();
 							parking_lot = new Parking_lot();

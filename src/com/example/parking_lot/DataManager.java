@@ -47,7 +47,16 @@ public class DataManager extends Application {
 	static ArrayList<ParkingInfo> parkingInfo = new ArrayList<ParkingInfo>();// 停车场数组
 	private ArrayList<String> likedParkingLotArrayList = new ArrayList<String>();
 	private Handler vIP_SYN_Handler = null;
+	private String ParkingName = null;
 	
+
+	public String getParkingName() {
+		return ParkingName;
+	}
+
+	public void setParkingName(String parkingName) {
+		ParkingName = parkingName;
+	}
 
 	public Handler getvIP_SYN_Handler() {
 		return vIP_SYN_Handler;
@@ -248,31 +257,31 @@ public class DataManager extends Application {
 			jiaoDuLD.add(0);
 		}
 		for (int i = 0; i < 10; i++) {
-			YdataLD.add(330);
+			YdataLD.add(315);
 		}
 		for (int i = 0; i < 10; i++) {
-			YdataLD.add(600);
+			YdataLD.add(565);
 		}
-		XdataLD.add(522);
-		XdataLD.add(610);
-		XdataLD.add(697);
-		XdataLD.add(785);
-		XdataLD.add(872);
-		XdataLD.add(960);
-		XdataLD.add(1047);
-		XdataLD.add(1133);
-		XdataLD.add(1220);
-		XdataLD.add(1308);
-		XdataLD.add(522);
-		XdataLD.add(610);
-		XdataLD.add(697);
-		XdataLD.add(785);
-		XdataLD.add(872);
-		XdataLD.add(960);
-		XdataLD.add(1047);
-		XdataLD.add(1133);
-		XdataLD.add(1220);
-		XdataLD.add(1308);
+		XdataLD.add(470);
+		XdataLD.add(558);
+		XdataLD.add(645);
+		XdataLD.add(733);
+		XdataLD.add(820);
+		XdataLD.add(908);
+		XdataLD.add(995);
+		XdataLD.add(1081);
+		XdataLD.add(1168);
+		XdataLD.add(1257);
+		XdataLD.add(470);
+		XdataLD.add(558);
+		XdataLD.add(645);
+		XdataLD.add(733);
+		XdataLD.add(820);
+		XdataLD.add(908);
+		XdataLD.add(995);
+		XdataLD.add(1081);
+		XdataLD.add(1168);
+		XdataLD.add(1257);
 
 		for (int i = 0; i < 20; i++) {
 			cengDataLD.add("010" + i);
@@ -324,38 +333,38 @@ public class DataManager extends Application {
 			jiaoDuXF.add(0);
 		}
 		for (int i = 0; i < 10; i++) {
-			YdataXF.add(330);
+			YdataXF.add(315);
 		}
 		for (int i = 0; i < 10; i++) {
-			YdataXF.add(600);
+			YdataXF.add(565);
 		}
 		for (int i = 0; i < 10; i++) {
-			YdataXF.add(330);
+			YdataXF.add(315);
 		}
 		for (int i = 0; i < 10; i++) {
-			YdataXF.add(600);
+			YdataXF.add(565);
 		}
 		for (int i = 0; i < 2; i++) {
-			XdataXF.add(522);
-			XdataXF.add(610);
-			XdataXF.add(697);
-			XdataXF.add(785);
-			XdataXF.add(872);
-			XdataXF.add(960);
-			XdataXF.add(1047);
-			XdataXF.add(1133);
-			XdataXF.add(1220);
-			XdataXF.add(1308);
-			XdataXF.add(522);
-			XdataXF.add(610);
-			XdataXF.add(697);
-			XdataXF.add(785);
-			XdataXF.add(872);
-			XdataXF.add(960);
-			XdataXF.add(1047);
-			XdataXF.add(1133);
-			XdataXF.add(1220);
-			XdataXF.add(1308);
+			XdataXF.add(470);
+			XdataXF.add(558);
+			XdataXF.add(645);
+			XdataXF.add(733);
+			XdataXF.add(820);
+			XdataXF.add(908);
+			XdataXF.add(995);
+			XdataXF.add(1081);
+			XdataXF.add(1168);
+			XdataXF.add(1257);
+			XdataXF.add(470);
+			XdataXF.add(558);
+			XdataXF.add(645);
+			XdataXF.add(733);
+			XdataXF.add(820);
+			XdataXF.add(908);
+			XdataXF.add(995);
+			XdataXF.add(1081);
+			XdataXF.add(1168);
+			XdataXF.add(1257);
 		}
 
 		for (int i = 0; i < 20; i++) {
@@ -535,31 +544,31 @@ public class DataManager extends Application {
 			jiaoDu.add(0);
 		}
 		for (int i = 0; i < 10; i++) {
-			Ydata.add(330);
+			Ydata.add(315);
 		}
 		for (int i = 0; i < 10; i++) {
-			Ydata.add(600);
+			Ydata.add(565);
 		}
-		Xdata.add(522);
-		Xdata.add(610);
-		Xdata.add(697);
-		Xdata.add(785);
-		Xdata.add(872);
-		Xdata.add(960);
-		Xdata.add(1047);
-		Xdata.add(1133);
-		Xdata.add(1220);
-		Xdata.add(1308);
-		Xdata.add(522);
-		Xdata.add(610);
-		Xdata.add(697);
-		Xdata.add(785);
-		Xdata.add(872);
-		Xdata.add(960);
-		Xdata.add(1047);
-		Xdata.add(1133);
-		Xdata.add(1220);
-		Xdata.add(1308);
+		Xdata.add(470);
+		Xdata.add(558);
+		Xdata.add(645);
+		Xdata.add(733);
+		Xdata.add(820);
+		Xdata.add(908);
+		Xdata.add(995);
+		Xdata.add(1081);
+		Xdata.add(1168);
+		Xdata.add(1257);
+		Xdata.add(470);
+		Xdata.add(558);
+		Xdata.add(645);
+		Xdata.add(733);
+		Xdata.add(820);
+		Xdata.add(908);
+		Xdata.add(995);
+		Xdata.add(1081);
+		Xdata.add(1168);
+		Xdata.add(1257);
 	}
 
 }
@@ -575,7 +584,7 @@ class cengnetwork implements Runnable {
 			getData.getDataFromDigi(CENGURL, 1);
 		} catch (Exception e) {
 			// TODO: handle exception
-			Log.d("222", e.getMessage());
+			//Log.d("222", e.getMessage());
 		}
 	}
 }

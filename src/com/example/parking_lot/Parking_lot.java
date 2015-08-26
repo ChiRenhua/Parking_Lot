@@ -2,9 +2,9 @@ package com.example.parking_lot;
 
 import java.util.ArrayList;
 
-
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -60,6 +60,7 @@ public class Parking_lot extends Fragment {
 	private TextView floor_numbertTextView;// 停车场层数
 	private TextView temperature;// 温度
 	private TextView car_number;// 可用车位
+	private TextView parkingName;// 停车场名称
 	private Button updataButton;// 刷新
 	private View view;
 	private ProgressBar progressBar;
@@ -74,6 +75,7 @@ public class Parking_lot extends Fragment {
 		floor_numbertTextView = (TextView) view.findViewById(R.id.floor);
 		temperature = (TextView) view.findViewById(R.id.tempereture);
 		car_number = (TextView) view.findViewById(R.id.car_number);
+		parkingName = (TextView) view.findViewById(R.id.parking_lot_name);
 		lastButton = (Button) view.findViewById(R.id.last);
 		nextButton = (Button) view.findViewById(R.id.next);
 		floor_number = parkingInfo.getFloorNumber();
@@ -86,6 +88,7 @@ public class Parking_lot extends Fragment {
 		dataManager.setStop(false);
 		updata.start();
 		dataManager.setCurrentView("Parking_lot");
+		parkingName.setText(dataManager.getParkingName());
 		return view;
 	}
 
@@ -209,8 +212,10 @@ public class Parking_lot extends Fragment {
 			}
 		}
 
-		floor_numbertTextView.setText("第" + number + "层");
-		temperature.setText("温度" + parkingInfo.getTemperature());
+		floor_numbertTextView.setText("第" + number + "层:");
+		floor_numbertTextView.setTextColor(Color.WHITE);
+		temperature.setText(parkingInfo.getTemperature() + "");
+		temperature.setTextColor(Color.WHITE);
 		car_number.setText(enable_number + "/" + total_number);
 	}
 

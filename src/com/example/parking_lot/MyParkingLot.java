@@ -117,6 +117,7 @@ public class MyParkingLot extends Fragment {
 				if (data.getName().equals(deleteString)) {
 					new Thread(new cengnetwork()).start();// 下载停车场层的信息
 					dataManager.setIndex(i);
+					dataManager.setParkingName(data.getName());
 					fm1 = getFragmentManager();
 					ft1 = fm1.beginTransaction();
 					parking_lot = new Parking_lot();
